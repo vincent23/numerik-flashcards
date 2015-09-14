@@ -1,1 +1,18 @@
 \cardfrontfoot{Lineare Gleichungssysteme}
+
+\begin{flashcard}[Algorithmus]{Rückwärtssubstitution}
+
+\begin{algorithm}[H]
+	\KwIn{$R, y$}
+	\KwOut{$x$}
+	$x_n = y_n/r_{nn};$\\
+	\For{$i = n-1, \ldots, 1$}{
+		$sum = r_{in}x_n;$\\
+		\For{$j = i+1; \ldots, n-1$}{
+			$sum = sum + r_{ij}x_j;$
+			}
+		$x_i = (y_i - sum) / r_{ii};$
+		}
+\end{algorithm}
+
+\end{flashcard}
