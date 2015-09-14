@@ -31,5 +31,41 @@ Dann:
 			\item[A-posteriori-Abs.] $\| x^* - x_k\| \leq \frac{\theta}{1-\theta} \|x_{k-1} - x_k\|$
 		\end{description}
 \end{itemize}
+\end{flashcard}
 
+\begin{flashcard}[Algorithmus]{Newton-Verfahren}
+\begin{algorithm}[H]
+	\KwIn{TOL, $f$}
+	\KwOut{$x_n$}
+	Wähle Startwert $x_0$\\
+	\While{$\|\Delta x_k \| > \text{TOL}$}{
+		Löse $f'(x_k) \Delta x_k = -f(x_k)$\\
+		$x_{k+1} = x_k + \Delta x_k$
+	}
+\end{algorithm}
+\end{flashcard}
+
+\begin{flashcard}[Ungleichung]{Konvergenz des Newton-Verfahrens}
+	Sei $D \subset \mathbb{R}^n$ offen, $f : D \rightarrow \mathbb{R}^n$ zweimal stetig differenzierbar, $x^* \in D$ mit $f(x^*) = 0$ und $f'(x^*)$ invertierbar.
+
+Es existiert eine Konstante $C > 0$ mit
+
+$$
+\|x^* - x_{k+1}\| \leq C \|x^* - x_k\|^2 \text{ für } k \in \mathbb{N}
+$$
+
+(lokal quadratische Konvergenz)
+\end{flashcard}
+
+\begin{flashcard}[Algorithmus]{vereinfachtes Newton-Verfahren}
+\begin{algorithm}[H]
+	\KwIn{TOL, $f$}
+	\KwOut{$x_n$}
+	Wähle Startwert $x_0$\\
+	LR-Zerlegung von $A = f'(x_0) \approx f'(x_k)$\\
+	\While{$\|\Delta x_k \| > \text{TOL}$}{
+		Löse $A \Delta x_k = -f(x_k)$\\
+		$x_{k+1} = x_k + \Delta x_k$
+	}
+\end{algorithm}
 \end{flashcard}
