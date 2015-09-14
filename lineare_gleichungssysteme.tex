@@ -1,7 +1,6 @@
 \cardfrontfoot{Lineare Gleichungssysteme}
 
 \begin{flashcard}[Algorithmus]{Rückwärtssubstitution}
-
 \begin{algorithm}[H]
 	\KwIn{$R, y$}
 	\KwOut{$x$}
@@ -14,5 +13,26 @@
 		$x_i = (y_i - sum) / r_{ii};$
 		}
 \end{algorithm}
+\end{flashcard}
 
+\begin{flashcard}[Algorithmus]{LR-Zerlegung}
+\begin{enumerate}
+	\item Bestimme Matrizen $P$, $L$ und $R$ mit $PA = LR$ durch Gauß-Elimination.
+	\item Löse $Ly = Pb$ (Vorwärtssubstitution).
+	\item Löse $Rx = y$ (Rückwärtssubstitution).
+\end{enumerate}
+\end{flashcard}
+
+\begin{flashcard}[Aufwand]{Vorwärts-, Rückwärtssubstitution}
+$$\sum_{i=1}^{n-1}i = n \frac{n-1}{2} \approx \frac{n^2}{2}$$
+\end{flashcard}
+
+\begin{flashcard}[Aufwand]{LR-Zerlegung}
+$$\sum_{j=1}^{n-1}j^2 = \frac{(n-1)n(2n-1)}{6} \approx \frac{n^3}{3}$$
+\end{flashcard}
+
+\begin{flashcard}{Spaltenpivotwahl LR-Zerlegung}
+$$|a_{jk}^{(k-1)}| = \max_{k \leq i \leq n} |a_{ik}^{(k-1)}|$$
+Dies führt zu:\\
+$l_{ij} \leq 1$ für alle $i, j$
 \end{flashcard}
