@@ -8,6 +8,11 @@
 \begin{document}
 
 \cardfrontstyle{headings}
+\cardbackstyle{plain}
+\makeatletter
+\renewcommand{\flashcards@ps@back@begin@plain}
+	{\vspace*{\fill}\flashcards@format@back}
+\makeatother
 
 \include{lineare_algebra}
 \include{lineare_gleichungssysteme}
