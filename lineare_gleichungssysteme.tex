@@ -36,3 +36,22 @@ $$|a_{jk}^{(k-1)}| = \max_{k \leq i \leq n} |a_{ik}^{(k-1)}|$$
 Dies führt zu:\\
 $l_{ij} \leq 1$ für alle $i, j$
 \end{flashcard}
+
+\begin{flashcard}[Definition]{zugehörige Matrixnorm}
+Sei ||.|| eine beliebige Norm auf $\mathbb{R}^n$. Dann definieren wir die \textbf{zugehörige Matrixnorm} auf dem Raum der quadratischen $(n \times n)$-Matrizen durch
+$$||A|| := \sup_{x \neq 0} \frac{||Ax||}{||x||} \text{für} A \in \mathbb{R}^{n \times n} \text{.}$$
+\end{flashcard}
+
+\begin{flashcard}{Submultiplikativität der Matrixnorm}
+$||I|| = 1$,\\
+$||A \cdot B|| \leq ||A|| \cdot ||B||$.
+\end{flashcard}
+
+\begin{flashcard}[Satz]{Matrixnormen}
+Sei $A$ eine quadratische $(n \times n)$-Matrix. Es gilt:
+\begin{enumerate}[(i)]
+	\item $\displaystyle ||A||_1 = \max_{j=1,\ldots,n} \sum_{i=1}^n |a_{ij}| \ \text{(Spaltensummennorm)}$
+	\item $\displaystyle ||A||_2 = \sqrt{\text{größter EW von $A^T$A}} \ \text{(Spektralnorm)}$
+	\item $\displaystyle ||A||_\infty = \max_{i=1,\ldots,n} \sum_{j=1}^n |a_{ij}| \ \text{(Zeilensummennorm)}$
+\end{enumerate}
+\end{flashcard}
