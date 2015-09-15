@@ -7,3 +7,17 @@ $$
 	\max\limits_{x \in [a,b]} |f(x) - p(x)| \leq \epsilon
 $$.
 \end{flashcard}
+
+\begin{flashcard}[Definition]{Lagrangesche Interpolationsformel}
+Zu $n+1$ Stützpunkten $(x_i,f_i), i=0,\ldots,n$
+mit paarweise verschiedenen Stützstellen $x_i$ existiert
+genau ein Interpolationspolynom $p(x)$ vom Grad $\leq n$,  gegeben durch
+$$
+	p(x) = \sum_{i=0}^{n} f_i L_i(x)
+$$
+wobei $L_i(x)$ die Lagrange-Polynome der Stützstellen $x_i$ sind:
+$$
+	L_i(x) = \prod_{j=0, j \neq i}^{n} \frac{x-x_j}{x_i-x_j}
+$$
+\end{flashcard}
+
