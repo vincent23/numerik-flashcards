@@ -1,1 +1,45 @@
 \cardfrontfoot{Numerische Integration}
+
+\begin{flashcard}[Definition]{Rechteckregel}
+Approximation durch Rechteck (Höhe am linken Rand):
+$$ I(f) \approx (b - a) f(a) $$
+\end{flashcard}
+
+\begin{flashcard}[Definition]{Mittelpunktregel}
+Approximation durch Rechteck (Höhe am Mittelpunkt):
+$$ I(f) \approx (b - a) f\left(\frac{a + b}{2}\right) $$
+\end{flashcard}
+
+\begin{flashcard}[Definition]{Trapezregel}
+Approximation durch lineare Funktion:
+$$ I(f) \approx (b - a) \frac{f(a) + f(b)}{2} $$
+\end{flashcard}
+
+\begin{flashcard}[Definition]{Simpsonregel}
+Lege Parabel durch drei Punkte:
+$$ I(f) \approx \frac{b-a}{6} \left( f(a) + 4 f\left(\frac{a+b}{2}\right) + f(b) \right) $$
+\end{flashcard}
+
+\begin{flashcard}[Ungleichung]{Kondition der numerischen Integration}
+Seien $\bar{f}, f : [a, b] \rightarrow \mathbb{R}$ stetig. Dann gilt
+
+$$ \frac{|I(f) - I(\bar{f})|}{|I(f)|} \leq \operatorname{cond}_1 \frac{\|f-\bar{f}\|_1}{\|f\|_1}, \, \text{mit} \operatorname{cond}_1 := \frac{I(|f|)}{|I(f)|}.$$
+\end{flashcard}
+
+\begin{flashcard}[Definition]{Quadraturformel (allgemeine Formel)}
+$b_i$ Gewichte, $c_i$ Knoten
+
+$$ \int_a^b f(x) dx \approx (b - a) \sum_{i=1}^{s} b_i f(a + c_i (b - a)). $$
+\end{flashcard}
+
+\begin{flashcard}[Definition]{Ordnung einer Quadraturformel}
+	Eine Quadraturformel $(b_i, c_i)_{i=1,\ldots,s}$ besitzt die \emph{Ordnung} $p$, falls sie exakte Lösungen für alle Polynome vom Grad $\leq p - 1$ liefert, wobei $p$ maximal ist.
+\end{flashcard}
+
+\begin{flashcard}[Satz]{Charakterisierung der Ordnung}
+Eine Quadraturformel besitzt genau dann die Ordnung $p$, falls
+
+$$ \frac{1}{q} = \sum_{i=1}^s b_i c_i^{q-1} \text{ für alle } q = 1, \ldots, p,$$
+
+aber nicht mehr für $ q = p + 1$ gilt.
+\end{flashcard}
