@@ -43,3 +43,32 @@ $$ \frac{1}{q} = \sum_{i=1}^s b_i c_i^{q-1} \text{ für alle } q = 1, \ldots, p,
 
 aber nicht mehr für $ q = p + 1$ gilt.
 \end{flashcard}
+
+\begin{flashcard}[Definition]{symmetrische Quadraturformel}
+	Die Knoten sind symmetrisch zum Punkt $\frac{1}{2}$ verteilt und der Gewichtungsvektor "`rückwärts gleich wie vorwärts"', also
+
+$$ c_i = 1 - c_{s+1-i},\qquad b_i = b_{s + 1 - i}$$
+
+Die Ordnung einer symmetrischen Quadraturformel ist gerade.
+\end{flashcard}
+
+\begin{flashcard}[Satz]{Bedingung für erhöhte Ordnung}
+	Sei $(b_i, c_i)_{i=1,\ldots,s}$ eine Quadraturformel der Ordnung $p \geq s$. Die Ordnung ist genau dann $s + m$, falls
+
+	$$ \int_0^1 M(x) g(x) dx = 0, \text{ mit } M(x) = (x-c_1)(x-c_2) \dots (x-c_s)$$
+
+	für alle Polynome $g$ vom Grad $\leq m - 1$, aber nicht mehr für ein Polynom vom Grad $m$ gilt.
+\end{flashcard}
+
+\begin{flashcard}[Satz]{Maximale Ordnung einer Quadraturformel}
+	Die maximale Ordnung einer Quadraturformel ist $2s$.
+\end{flashcard}
+
+\begin{flashcard}[Satz]{Gauß-Quadraturformeln}
+	Es existiert eine eindeutige Quadraturformel der Ordnung $2s$. Sie ist gegeben durch
+
+	$$ c_i = \frac{1}{2}(1 + \gamma_i) $$
+
+	für $i = 1,\ldots,s$, wobei $\gamma_i,\ldots,\gamma_s$ die Nullstellen des Legendre-Polynoms vom Grad s sind.
+	Die Gewichte $b_i$ sind über die Ordnungsbedingungen eindeutig bestimmt.
+\end{flashcard}
