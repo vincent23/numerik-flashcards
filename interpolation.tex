@@ -47,3 +47,17 @@ $$
 $$
 wobei $\Lambda_n$ die kleinste Zahl mit dieser Eigenschaft ist.
 \end{flashcard}
+
+\begin{flashcard}[Satz]{Newtonsche Interpolationsformel}
+Zu $n+1$ Stützpunkten $(x_i, f_i), i=0, \ldots , n$ mit paarweise verschiedenen Stützstellen $x_i$
+existiert genau ein Interpolationspolynom $p(x)$ vom Grad $\leq n$, welches gegeben ist durch
+$$
+	p(x) = f_{0,0} + f_{0,1}(x-x_0) + \ldots + f_{0,n}(x-x_0) \cdot \ldots \cdot (x-x_{n-1}),
+$$
+wobei die dividierten Differenzen gegeben sind durch
+$$
+	f_{i,i} = f_i
+	f_{i,i+k} = \frac{f_{i,i+k-1}-f_{i+1,i+k}}{x_i-x_{i+k}}
+$$
+für $i=0, \ldots , n$ und $1 \leq k \leq n-i$.
+\end{flashcard}
