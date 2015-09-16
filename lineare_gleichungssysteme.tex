@@ -43,8 +43,8 @@ $$||A|| := \sup_{x \neq 0} \frac{||Ax||}{||x||} \text{für} A \in \mathbb{R}^{n 
 \end{flashcard}
 
 \begin{flashcard}{Submultiplikativität der Matrixnorm}
-$||I|| = 1$,\\
-$||A \cdot B|| \leq ||A|| \cdot ||B||$.
+$$||I|| = 1,$$\\
+$$||A \cdot B|| \leq ||A|| \cdot ||B||.$$
 \end{flashcard}
 
 \begin{flashcard}[Satz]{Matrixnormen}
@@ -54,4 +54,31 @@ Sei $A$ eine quadratische $(n \times n)$-Matrix. Es gilt:
 	\item $\displaystyle ||A||_2 = \sqrt{\text{größter EW von $A^T$A}} \ \text{(Spektralnorm)}$
 	\item $\displaystyle ||A||_\infty = \max_{i=1,\ldots,n} \sum_{j=1}^n |a_{ij}| \ \text{(Zeilensummennorm)}$
 \end{enumerate}
+\end{flashcard}
+
+\begin{flashcard}[Satz]{über die Cholesky-Zerlegung}
+Eine invertierbare Matrix $A$ besitzt genau dann eine Cholesky-Zerlegung $A = LL^T$ mit unterer Dreiecksmatrix $L$, wenn $A$ eine spd-Matrix ist.
+\end{flashcard}
+
+\begin{flashcard}[Algorithmus]{Cholesky-Verfahren für spd-Matrizen}
+Zum Lösen von
+$$Ax = L \underbrace{L^T x}_{=:y} = b$$
+gehen wir wie folgt vor:
+\begin{enumerate}
+	\item Löse durch Vorwärtssubstitution $Ly = b$.
+	\item Löse durch Rückwärtssubstitution $L^Tx = y$.
+\end{enumerate}
+\end{flashcard}
+
+\begin{flashcard}[Algorithmus]{Cholesky-Zerlegung}
+\begin{algorithm}[H]
+	\KwIn{$A$}
+	\KwOut{$L$}
+	Berechne $L(1,1) = \sqrt{A(1,1)}$;\\
+	\For{$k = 2, \ldots, n$}{
+		Löse $L(1:k-1,1:k-1)x = A(1:k-1,k)$ durch Vorwärtssubstitution;\\
+		Setze $L(k,1:k-1) = x^T$;\\
+		Berechne $L(k,k) = \sqrt{A(k,k) - x^Tx}$;
+	}
+\end{algorithm}
 \end{flashcard}
