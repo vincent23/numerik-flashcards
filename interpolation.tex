@@ -61,3 +61,12 @@ $$
 $$
 für $i=0, \ldots , n$ und $1 \leq k \leq n-i$.
 \end{flashcard}
+
+\begin{flashcard}[Satz]{über den Interpolationsfehler}
+Sei $f: [a,b] \rightarrow \mathbb{R}$ mindestens $(n+1)$-mal stetig differenzierbar und $p(x)$
+das Interpolationspolynom von $f$ in den Stützstellen $x_0, \ldots , x_n \in [a,b]$ vom Grad $\leq n$.
+Dann existiert zu jedem $x \in [a,b]$ eine Zwischenstelle $\xi = \xi(x) \in (a,b)$ mit
+$$
+	f(x)-p(x) = w_{n+1}(x) \cdot \frac{f^{(n+1)}(\xi)}{(n+1)!}.
+$$
+\end{flashcard}
