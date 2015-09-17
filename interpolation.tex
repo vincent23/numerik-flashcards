@@ -205,3 +205,19 @@ $$
 	f^{\prime}(a) = f^{\prime}(b)
 $$
 \end{flashcard}
+
+\begin{flashcard}[Satz]{gute Kondition der Spline-Interpolation}
+Bei äquidistanter Unterteilung gilt
+$$
+	\Lambda_n \leq 2 \text{ für alle } n \in \mathbb{N}.
+$$
+\end{flashcard}
+
+\begin{flashcard}[Satz]{Fehlerabschätzung für eingespannte kubische Splines}
+Sei $f \in C^4[a,b]$, $s$ interpolierender Spline mit $s^\prime(a) = f^\prime(a)$ und $s^\prime(b) = f^\prime(b)$.
+Dann gilt
+$$
+	|f(x) - s(x)| \leq \frac{5}{384}h^4\max_{\xi \in [a,b]} |f^{(4)}(\xi)|
+$$
+mit $h = max_{1,\ldots ,n} h_i$.
+\end{flashcard}
