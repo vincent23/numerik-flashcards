@@ -145,3 +145,18 @@ $$
 	2n \text{ Additionen}
 $$
 \end{flashcard}
+
+\begin{flashcard}[Satz]{über die Stabilität des Clenshaw-Algorithmus}
+Sei $p(x)$ wie im Satz über den Clenshaw-Algorithmus definiert und $\tilde{d}_k$ durch folgende Rekursion berechnet:
+$$
+	0 = \tilde{d}_{n+2} = \tilde{d}_{n+1}
+$$
+$$
+	\tilde{d}_k = c_k + 2x \cdot \tilde{d}_{k+1} - \tilde{d}_{k+2} + \epsilon_k
+$$
+für $k = n,n-1, \ldots , 0$, wobei $\epsilon_k$ zum Beispiel Rundungsfehler im k-ten Schritt sind. Dann gilt:
+$$
+	| \underbrace{\frac{1}{2}(\tilde{d}_0 - \tilde{d}_2)}_{=:\tilde{p}(x)} - p(x) | \leq \sum_{i=0}^n |\epsilon_i|
+$$
+für $|x| \leq 1$.
+\end{flashcard}
