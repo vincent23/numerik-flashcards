@@ -107,5 +107,18 @@ $$
 $$
 	\Lambda_n \approx \frac{2}{\pi} log(n) \text{ für }  n \rightarrow \infty
 $$
+\end{flashcard}
 
+\begin{flashcard}[Satz]{Tschebyscheff Interpolationsformel}
+Zu $n+1$ Stützpunkten $(x_i, f_i), i = 0, \ldots , n$, wobei die Stützstellen genau den Nullstellen
+des Tschebyscheff-Polynoms $T_{n+1}$ entsprechen, lässt sich das eindeutige Interpolationspolynom
+$p(x) = p_{0,n}(x)$ vom Grad $\leq n$ darstellen durch
+$$
+	p(x) = \frac{1}{2}c_0 + c_1T_1(x) + \ldots + c_nT_n(x)
+$$
+mit
+$$
+	c_k = \frac{2}{n+1}\sum_{i=0}^n f_i cos \left(k \frac{2i+1}{2n+2}\pi \right)
+$$
+für $k=0, \ldots, n$.
 \end{flashcard}
