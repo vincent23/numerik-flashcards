@@ -1,1 +1,29 @@
 \cardfrontfoot{cg-Verfahren}
+
+\begin{flashcard}[Definition]{Energienorm}
+Ist $A \in \mathbb{R}^{n \times n}$ eine symmetrische und positiv definite Matrix, so wird durch
+$$||x||_A = \sqrt{x^TAx}, \qquad x \in \mathbb{R}^n$$
+eine Norm auf $\mathbb{R}^n$ definiert, die sogenannte \textbf{Energienorm}. Das entsprechende Skalarprodukt lautet
+$$\langle x, y \rangle_A = x^TAy, \qquad x,y \in \mathbb{R}^n.$$
+\end{flashcard}
+
+\begin{flashcard}[Satz]{über die Konvergenz}
+Nach höchstens $n$ Schritten liefert das cg-Verfahren die exakte Lösung von $Ax = b$.
+\end{flashcard}
+
+\begin{flashcard}[Algorithmus]{cg-Verfahren}
+Wähle beliebiges $x^0 \in \mathbb{R}^n$ und definiere $d^0 = r^0 = b-Ax^0$ und $k=0$.\\
+Solange ($||r^k|| >$ TOL $ \cdot \ ||b||$) berechne iterativ
+\begin{enumerate}
+	\item $\alpha_k = \langle r^k, r^k \rangle /  \langle d^k, d^k \rangle_A$,
+	\item $x^{k+1} = x^k + \alpha_k d^k$,
+	\item $r^{k+1} = r^k - \alpha_k Ad^k$,
+	\item $\beta_k = \langle r^{k+1}, r^{k+1} \rangle / \langle r^k, r^k \rangle$,
+	\item $d^{k+1} = r^{k+1} + \beta_k d^k$,
+	\item Erhöhe k um 1.
+\end{enumerate}
+\end{flashcard}
+
+\begin{flashcard}[Aufwand]{cg-Verfahren}
+Der Aufwand wird dominiert von dem Matrix-Vektor-Produkt $Ad^k$ pro Iteration. Der Aufwand aller anderen Berechnungen einer Iteration ist linear in $n$. Bei dünn besetzten Matrizen (d.h. viele Einträge sind 0) kann das Produkt $Ad^k$ entsprechend effizienter ausgerechnet werden. Das cg-Verfahren eignet sich somit insbesondere für symmetrisch, positive definite Matrizen, die dünn besetzt sind.
+\end{flashcard}
