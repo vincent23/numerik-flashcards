@@ -257,3 +257,61 @@ $$
 gegeben. Die Koeffizienten $b_i \in \mathbb{R}^d$ heißen Kontrollpunkte von $p$,
 der durch sie verlaufende Streckenzug heißt Bézier-Polygon.
 \end{flashcard}
+
+\begin{flashcard}[Lemma]{Ableitungen der Bernstein-Polynome}
+$$
+	\frac{d}{dx}B_i^n(x) =
+	\begin{cases}
+		-nB_0^{n-1}(x)&\text{ für } i=0,\\
+		n(B_{i-1}^{n-1}(x) - B_{i}^{n-1}(x)) &\text{ für } i=1, \ldots , n-1 \\
+		nB_{n-1}^{n-1}(x) &\text{ für } i=n.
+	\end{cases}
+$$
+\end{flashcard}
+
+\begin{flashcard}[Satz]{Bild von p liegt in konvexer Hülle}
+Das Bild $p([0,1])$ von $p \in \mathbb{P}_n^d$ mit $p(x) = \sum_{i=0}^n b_i B_i^n(x)$
+liegt in der konvexen Hülle der Kontrollpunkte $b_i$, d.h.
+$$
+	p(x) \in conv\lbrace b_0, \ldots , b_n \rbrace \text{ für } x \in [0,1].
+$$
+\end{flashcard}
+
+\begin{flashcard}[Definition]{Teilpolynome}
+Für $p \in \mathbb{P}_n^d$ mit $p(x) = \sum_{i=0}^n b_i B_i^n(x)$ sind durch
+$$
+	\beta_i^k(x) = \sum_{j=0}^k b_{i+j}B_j^k(x) \quad , k=0, \ldots , n, i=0, \ldots, n-k,
+$$
+die sogenannten Teilpolynome $\beta_i^k(x) \in \mathbb{P}_n^d$ definiert, wobei $k$ den Grad bezeichnet.
+\end{flashcard}
+
+\begin{flashcard}[Satz]{rekursive Berechnung der Teilpolynome}
+Die Teilpolynome $\beta_i^k(x)$ von $p(x) = \sum_{i=0}^n b_i B_i^n(x)$ genügen der Rekursion
+$$
+	\beta_i^k(x) = (1-x)\beta_i^{k-1}(x) + x\beta_{i+1}^{k-1}(x)
+$$
+für $k=0, \ldots , n$ und $i = 0, \ldots , n-k$. \linebreak
+Die Auswertung eines Polynoms durch die rekursive Berechnung (Algorithmus von de Casteljau)
+ist für $x \in  [0,1]$ äußerst stabil, da nur Konvexkombinationen berechnet werden und somit Störungen gedämpft werden.
+\end{flashcard}
+
+\begin{flashcard}[Definition]{Bernstein-Polynome bezüglich beliebiger Intervalle}
+Das $i$-te Bernstein-Polynom vom Grad $n$ bezüglich $[a,b]$ lautet
+$$
+	B_i^n(x; a, b) = \frac{1}{(b-a)^n}\binom{n}{i}(b-x)^{n-i}(x-a)^i
+$$
+für $i=0, \ldots , n$.
+\end{flashcard}
+
+\begin{flashcard}[Satz]{über Bernstein-Polynome bezüglich beliebiger Intervalle}
+Sei die Bernstein-Darstellung $p(x) = \sum_{i=0}^n b_i B_i^n(x; a, b)$ zum Intervall $[a,b]$ gegeben.
+Dann lassen sich die Darstellungen
+$$
+	p(x) = \sum_{i=0}^n a_i B_i^n(x; a, c) = \sum_{i=0}^n c_i B_i^n(x; c, b)
+$$
+bezüglich $[a, c]$ und $[c, b]$ für $c \in ]a, b[$ leicht berechnen durch
+$$
+	a_k = \beta_0^k(c; a,b), \quad c_k = \beta_k^{n-k}(c; a, b)
+$$
+für $k=0, \ldots ,n$.
+\end{flashcard}
