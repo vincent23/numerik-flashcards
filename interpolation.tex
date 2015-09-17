@@ -160,3 +160,15 @@ $$
 $$
 für $|x| \leq 1$.
 \end{flashcard}
+
+\begin{flashcard}[Satz]{über die Min-Eigenschaft kubischer Splines}
+Sei $a = x_0 < x_1 < \ldots < x_n = b$, und seien $f,s: [a,b] \rightarrow \mathbb{R}$ zweimal stetig differenzierbar mit
+$$
+	s(x_i) = f(x_i) \text{ für } i= 0, \ldots , n.
+$$
+Des Weiteren gelte \underline{eine} der Bedingungen für eingespannte, natürliche und periodische Splines.
+Falls $s$ auf jedem Teilintervall $[x_{i-1}, x_i]$ ein kubisches Polynom ist, so gilt:
+$$
+	\int_a^b | s^{\prime\prime}(x) |^2dx \leq 	\int_a^b | f^{\prime\prime}(x) |^2dx \leq
+$$
+\end{flashcard}
