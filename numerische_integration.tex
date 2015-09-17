@@ -72,3 +72,18 @@ Die Ordnung einer symmetrischen Quadraturformel ist gerade.
 	für $i = 1,\ldots,s$, wobei $\gamma_i,\ldots,\gamma_s$ die Nullstellen des Legendre-Polynoms vom Grad s sind.
 	Die Gewichte $b_i$ sind über die Ordnungsbedingungen eindeutig bestimmt.
 \end{flashcard}
+
+\begin{flashcard}[Satz]{Quadraturformel}
+	Die Quadraturformel habe die Ordnung $p$ und $g : [0, 1] \rightarrow \mathbb{R}$ sei $q$-mal stetig differenzierbar.
+	Dann gilt
+	{\begin{align*}
+		R(g) &= \int_0^1 K_q(t) g^{(q)}(t) dt,\\
+		\text{mit } R(G) &:= \int_0^1 g(\tau) d\tau - \sum_{i=1}^s b_i g(c_i)\\
+		g(\tau) &:= f(a + \tau(b-a))
+	\end{align*}}
+	falls $2 \leq q \leq p$, wobei $K_q(t)$ der sogenannte Peano-Kern ist.
+\end{flashcard}
+
+\begin{flashcard}[Definition]{Peano-Kern}
+$$ K_q(t) = \frac{(1-t)^q}{q!} - \sum_{i=1}^s b_i \frac{(c_i - t)_{+}^{q-1}}{(q-1)!}.$$
+\end{flashcard}
