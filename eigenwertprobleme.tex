@@ -1,1 +1,27 @@
 \cardfrontfoot{Eigenwertprobleme}
+
+\begin{flashcard}[Satz]{über die Kondition von einfachen Eigenwerten}
+Sei $\lambda$ ein einfacher EW von $A$. Für hinreichend kleines $\varepsilon$ gilt
+$$\lambda(\varepsilon) = \lambda + \varepsilon \frac{u^TCv}{u^Tv} + \mathcal{O}(\varepsilon^2),$$
+wobei $\lambda(\varepsilon)$ EW von $A(\varepsilon)$ ist, $Av = \lambda v$, $u^TA = \lambda u^T$ und $||v||_2 = ||u||_2 = 1$ gilt.
+\end{flashcard}
+
+\begin{flashcard}[Satz]{über die Konvergenz der Vektoriteration}
+Für eine symmetrische Matrix $A \in \mathbb{R}^{d \times d}$ sei ein einfacher Eigenwert $\lambda_1$ betragsmäßig größer als alle anderen. Dann konvergiert die Folge von Vektoren $(y_k)_{k \in \mathbb{N}}$ definiert durch die Vektoriteration
+$$y_k = \frac{x_k}{||x_k||}, \qquad x_{k+1} = Ay_k$$
+für $k = 0, 1, \ldots $ gegen einen normierten Eigenvektor $v_1$ von $A$ zum Eigenwert $\lambda_1$, falls $x_0$ nicht senkrecht auf dem Eigenraum $span\ v_1$ steht.
+\end{flashcard}
+
+\begin{flashcard}{Inverse Vektoriteration}
+$$y_k = \frac{x_k}{||x_k||}, \qquad Ax_{k+1} = y_k$$
+Beim Lösen des linearen Gleichungssystems muss die LR-Zerlegung nur ein einziges Mal durchgeführt werden. Ist die Matrix sehr groß und zusätzlich schwach besetzt, so könnte auch das cg-Verfahren eingesetzt werden.
+\end{flashcard}
+
+\begin{flashcard}[Algorithmus]{Spektrale Bisektion}
+Bestimme einen Eigenvektor $w$ von A zum kleinsten positiven Eigenwert. Wir lösen mit $e = (1, \ldots, 1)^T$:
+\begin{enumerate}
+	\item Wähle $x_0 \in \mathbb{R}^n$ mit $e^Tx_0 = 0$, setze $k = 0$ und $y_0 = \frac{x_0}{||x_0||}$.
+	\item Berechne $x_{k+1}$ mit $Ax_{k+1} = y_k$ und $e^Tx_{k+1} = 0$.
+	\item Setze $y_{k+1} = \frac{x_{k+1}}{||x_{k+1}||}$ und erhöhe $k$ um 1, gehe zu 2.
+\end{enumerate}
+\end{flashcard}
