@@ -8,3 +8,35 @@ $$
 
 so heißt $v$ ein \emph{Eigenvektor} von $A$ zum \emph{Eigenwert} $\lambda$. 
 \end{flashcard}
+
+\begin{flashcard}[Definition]{spd-Matrix}
+	Ist eine symmetrische Matrix($A = A^T$) positiv definit ($x^T A X > 0 \text{ für alle } x \in \mathbb{R}^n\setminus\{0\}$, so nennen wir sie kurz \emph{spd}-Matrix.
+\end{flashcard}
+
+\begin{flashcard}[Definition]{Orthogonale Matrix}
+	Eine Matrix $Q \in \mathbb{R}^{n \times n}$ heißt orthogonal, falls $QQ^T = I$ gilt.
+\end{flashcard}
+
+\begin{flashcard}[Definition]{Norm}
+	Eine Funktion $\|\cdot\| : \mathbb{R}^n \rightarrow \mathbb{R}$ heißt eine \emph{Norm} auf $\mathbb{R}^n$, wenn gilt
+	\begin{itemize}
+		\item positive Definitheit: $\|x\| \geq 0$ und $\|x\| = 0 \Leftrightarrow x = 0$,
+		\item Dreiecksungleichung: $ \| x + y \| \leq \|x\| + \|y\|$,
+		\item Homogenität: $\|\lambda x\| = |\lambda|\|x\|$.
+	\end{itemize}
+\end{flashcard}
+
+\begin{flashcard}[Definition]{Norm}
+	Eine Funktion $\langle \cdot, \cdot \rangle : \mathbb{R}^n \times \mathbb{R}^n \rightarrow \mathbb{R}$ heißt \emph{(euklidisches) Skalarprodukt}, wenn
+	\begin{itemize}
+		\item Linearität (in 2. Komponente): $\langle x, \lambda y + \mu z \rangle = \lambda \langle x, y \rangle + \mu \langle x, z \rangle$,
+		\item Symmetrie: $\langle x, y\rangle = \langle y, x \rangle$,
+		\item positive Definitheit: $\langle x, x \rangle \geq 0$ und $\langle x, x \rangle = 0 \Leftrightarrow x = 0$.
+	\end{itemize}
+\end{flashcard}
+
+\begin{flashcard}[Satz]{Cauchy-Schwarz-Ungleichung}
+	$$|\langle x, y \rangle|^2 \leq \langle x, x \rangle \cdot \langle y, y \rangle$$
+	Mit der induzierten Norm:
+	$$ |\langle x, y \rangle| \leq \|x\| \cdot \|y\| $$
+\end{flashcard}
