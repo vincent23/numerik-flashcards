@@ -55,10 +55,10 @@ $$
 	p(x) = f_{0,0} + f_{0,1}(x-x_0) + \ldots + f_{0,n}(x-x_0) \cdot \ldots \cdot (x-x_{n-1}),
 $$
 wobei die dividierten Differenzen gegeben sind durch
-$$
-	f_{i,i} = f_i
-	f_{i,i+k} = \frac{f_{i,i+k-1}-f_{i+1,i+k}}{x_i-x_{i+k}}
-$$
+{\begin{align*}
+	f_{i,i} &= f_i\\
+	f_{i,i+k} &= \frac{f_{i,i+k-1}-f_{i+1,i+k}}{x_i-x_{i+k}}
+\end{align*}}
 für $i=0, \ldots , n$ und $1 \leq k \leq n-i$.
 \end{flashcard}
 
@@ -140,10 +140,10 @@ $$
 
 \begin{flashcard}[Aufwand]{Clenshaw-Algorithmus}
 Aufwand zur Berechnung von $p(x)$:
-$$
-	n+2 \text{ Multiplikationen}
-	2n \text{ Additionen}
-$$
+{\begin{align*}
+	&n+2 \text{ Multiplikationen}\\
+	&2n \text{ Additionen}
+\end{align*}}
 \end{flashcard}
 
 \begin{flashcard}[Satz]{über die Stabilität des Clenshaw-Algorithmus}
@@ -166,10 +166,10 @@ Sei $a = x_0 < x_1 < \ldots < x_n = b$, und seien $f,s: [a,b] \rightarrow \mathb
 $$
 	s(x_i) = f(x_i) \text{ für } i= 0, \ldots , n.
 $$
-Des Weiteren gelte \underline{eine} der Bedingungen für eingespannte, natürliche und periodische Splines.
+Des Weiteren gelte \underline{eine} der Bedingungen für eingespannte, natürliche oder periodische Splines.
 Falls $s$ auf jedem Teilintervall $[x_{i-1}, x_i]$ ein kubisches Polynom ist, so gilt:
 $$
-	\int_a^b | s^{\prime\prime}(x) |^2dx \leq 	\int_a^b | f^{\prime\prime}(x) |^2dx \leq
+	\int_a^b | s^{\prime\prime}(x) |^2dx \leq 	\int_a^b | f^{\prime\prime}(x) |^2dx
 $$
 \end{flashcard}
 
@@ -280,7 +280,7 @@ $$
 \begin{flashcard}[Definition]{Teilpolynome}
 Für $p \in \mathbb{P}_n^d$ mit $p(x) = \sum_{i=0}^n b_i B_i^n(x)$ sind durch
 $$
-	\beta_i^k(x) = \sum_{j=0}^k b_{i+j}B_j^k(x) \quad , k=0, \ldots , n, i=0, \ldots, n-k,
+\beta_i^k(x) = \sum_{j=0}^k b_{i+j}B_j^k(x), \quad k=0, \ldots, n \text{ und }  i=0, \ldots, n-k,
 $$
 die sogenannten Teilpolynome $\beta_i^k(x) \in \mathbb{P}_n^d$ definiert, wobei $k$ den Grad bezeichnet.
 \end{flashcard}
@@ -290,7 +290,8 @@ Die Teilpolynome $\beta_i^k(x)$ von $p(x) = \sum_{i=0}^n b_i B_i^n(x)$ genügen 
 $$
 	\beta_i^k(x) = (1-x)\beta_i^{k-1}(x) + x\beta_{i+1}^{k-1}(x)
 $$
-für $k=0, \ldots , n$ und $i = 0, \ldots , n-k$. \linebreak
+für $k=0, \ldots , n$ und $i = 0, \ldots , n-k$.
+
 Die Auswertung eines Polynoms durch die rekursive Berechnung (Algorithmus von de Casteljau)
 ist für $x \in  [0,1]$ äußerst stabil, da nur Konvexkombinationen berechnet werden und somit Störungen gedämpft werden.
 \end{flashcard}

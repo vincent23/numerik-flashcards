@@ -28,12 +28,12 @@ Solange ($||r^k|| >$ TOL $ \cdot \ ||b||$) berechne iterativ
 Der Aufwand wird dominiert von dem Matrix-Vektor-Produkt $Ad^k$ pro Iteration. Der Aufwand aller anderen Berechnungen einer Iteration ist linear in $n$. Bei dünn besetzten Matrizen (d.h. viele Einträge sind 0) kann das Produkt $Ad^k$ entsprechend effizienter ausgerechnet werden. Das cg-Verfahren eignet sich somit insbesondere für symmetrisch, positive definite Matrizen, die dünn besetzt sind.
 \end{flashcard}
 
-\begin{flashcard}[Satz]{Fehlerabschätzung des cg-Verfahrens (1)}
+\begin{flashcard}[Satz]{Fehlerabschätzung des cg-Verfahrens (Eigenwerte)}
 Sei $q_k$ ein beliebiges Polynom vom Grad $\leq k$ mit $q(0) = 1$, so gilt
 $$||x^* - x^k||_A \leq \max_{\lambda \text{ EW von } A} |q_k(\lambda)| \cdot ||x^* - x^0||_A.$$
 \end{flashcard}
 
-\begin{flashcard}[Satz]{Fehlerabschätzung des cg-Verfahrens (2)}
+\begin{flashcard}[Satz]{Fehlerabschätzung des cg-Verfahrens (Kondition)}
 Bezeichne $x^*$ die Lösung des linearen Gleichungssystems. Dann gilt:
 $$||x^* - x^k||_A \leq 2 \left( \frac{\sqrt{\kappa}-1}{\sqrt{\kappa}+1}\right)^k ||x^* - x^0||_A$$
 für $k = 1, 2, \ldots$ mit $\kappa = cond_2(A)$.

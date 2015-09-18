@@ -17,6 +17,15 @@ für alle $x, y \in D$.
 
 \end{flashcard}
 
+\begin{flashcard}[Satz]{Mittelwert-Abschätzungssatz}
+	Sei $f : D \rightarrow \mathbb{R}^m$ differenzierbar auf der offenen Menge $D \subset \mathbb{R}^n$.
+	Weiterhin sei $[a, b] \subset D$.
+	Dann gilt:
+	$$
+		\|f(b) - f(a)\| \leq \sup_{\xi \in [a, b]} \|f'(\xi)\| \cdot \|b - a\|.
+	$$
+\end{flashcard}
+
 \begin{flashcard}[Satz]{Banachscher Fixpunktsatz}
 Sei $F : D \rightarrow D$ eine \emph{Kontraktion} auf $D$, abgeschlossene Teilmenge des $\mathbb{R}^n$, mit Kontraktionszahl $0 \leq \theta < 1$.
 Dann:
@@ -27,8 +36,8 @@ Dann:
 	\item Es gelten die Abschätzungen
 		\begin{description}
 			\item[lineare Konvergenz] $\| x^* - x_k\| \leq \theta \|x^* - x_{k-1}\|$
-			\item[A-priori-Abs.] $\| x^* - x_k\| \leq \frac{\theta^k}{1-\theta} \|x_0 - x_1\|$
-			\item[A-posteriori-Abs.] $\| x^* - x_k\| \leq \frac{\theta}{1-\theta} \|x_{k-1} - x_k\|$
+			\item[A-priori-Absch.] $\| x^* - x_k\| \leq \frac{\theta^k}{1-\theta} \|x_0 - x_1\|$
+			\item[A-posteriori-Absch.] $\| x^* - x_k\| \leq \frac{\theta}{1-\theta} \|x_{k-1} - x_k\|$
 		\end{description}
 \end{itemize}
 \end{flashcard}

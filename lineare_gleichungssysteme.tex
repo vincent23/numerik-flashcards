@@ -83,6 +83,10 @@ gehen wir wie folgt vor:
 \end{algorithm}
 \end{flashcard}
 
+\begin{flashcard}[Aufwand]{Cholesky-Zerlegung}
+	$$ \approx \frac{1}{6} n^3$$
+\end{flashcard}
+
 \begin{flashcard}[Satz]{Gauß (Lineare Ausgleichsprobleme)}
 Seien $A \in \mathbb{R}^{m \times n}, b \in \mathbb{R}^m$ mit $m > n$. Der Vektor $x \in \mathbb{R}^n$ ist genau dann eine Lösung des linearen Ausgleichsproblems $||Ax -b||_2 = min$, falls er die sogenannte Normalengleichung
 $$A^TAx = A^Tb$$
@@ -107,14 +111,14 @@ löst. Insbesondere ist das lineare Ausgleichsproblem genau dann eindeutig lösb
 \end{flashcard}
 
 \begin{flashcard}[Definition]{Stabilität (Vorwärtsanalyse)}
-	Der Algorithmus heißt \emph{numerisch stabil Vorwärtsanalyse}, falls
+	Der Algorithmus heißt \emph{numerisch stabil im Sinne der Vorwärtsanalyse}, falls
 	$$ \frac{\|x - \hat{x}\|}{\|x\|} \leq C \cdot cond(A) \cdot eps$$
 	mit nicht allzu großem C gilt.
 	D.h. der Einfluss von Rundungsfehlern während der Rechnung ist nicht viel größer als der Einfluss von Rundungsfehlern in den Daten.
 \end{flashcard}
 
 \begin{flashcard}[Definition]{Stabilität (Rückwärtsanalyse)}
-	Der Algorithmus heißt \emph{numerisch stabil Vorwärtsanalyse}, falls das numerische Ergebnis $\hat{x}$ als exakte Lösung einer Gleichung $\bar{A}\hat{x} = \bar{b}$ interpretiert werden kann mit
+	Der Algorithmus heißt \emph{numerisch stabil im Sinne der Rückwärtsanalyse}, falls das numerische Ergebnis $\hat{x}$ als exakte Lösung einer Gleichung $\bar{A}\hat{x} = \bar{b}$ interpretiert werden kann mit
 	$$ \frac{\|A - \bar{A}\|}{\|A\|} \leq C \cdot eps, \qquad \frac{\|b - \bar{b}\|}{\|b\|} \leq C \cdot eps$$
 	mit nicht allzu großem C.
 
@@ -142,7 +146,7 @@ löst. Insbesondere ist das lineare Ausgleichsproblem genau dann eindeutig lösb
 \begin{flashcard}[Definition]{QR-Zerlegung}
 	Zu einer gegebenen Matrix $A \in \mathbb{R}^{m \times n}$ mit $m \geq n$ lässt sich eine Zerlegung
 	$$ A = QR $$
-	konstruieren mit orthogonaler Matrix $Q \in \mathbb{R}^{m \times m}$ (d.h. $QQ^T = I$ und
+	konstruieren mit orthogonaler Matrix $Q \in \mathbb{R}^{m \times m}$ (d.h. $QQ^T = I$) und
 $$ R = \begin{pmatrix}\tilde{R}\\0\end{pmatrix} \in \mathbb{R}^{m \times n}, \tilde{R} \in \mathbb{R}^{n \times n} \text{ obere Dreiecksmatrix.}$$
 \end{flashcard}
 
@@ -152,4 +156,8 @@ $$ R = \begin{pmatrix}\tilde{R}\\0\end{pmatrix} \in \mathbb{R}^{m \times n}, \ti
 		\item Löse $Qc = b$ mit $c = Q^{-1} b = Q^T b$.
 		\item Löse $\tilde{R}x = c$ (Rückwärtssubstitution). Für $m = n$ gilt $R = \tilde{R}$.
 	\end{enumerate}
+\end{flashcard}
+
+\begin{flashcard}[Aufwand]{QR-Zerlegung}
+	Etwa doppelt so viel wie Gauß-Elimination, dafür besonders stabil.
 \end{flashcard}
