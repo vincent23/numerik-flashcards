@@ -315,3 +315,73 @@ $$
 $$
 für $k=0, \ldots ,n$.
 \end{flashcard}
+
+\begin{flashcard}[Algorithmus]{Konstruktion kubischer Splines}
+	\begin{enumerate}
+		\item Bestimme dividierte Differenzen.
+		\item Berechne $\gamma$ über LGS (rechte Seite d). $d_i := y_{i,i+1} - y_{i-1,i}$
+		\item Bestimme für jedes Polynom $\alpha_i = \frac{1}{6 h_i}(\gamma_{i-1} + 2 \gamma_i)$ und $\beta_i = - \frac{1}{6 h_i} (2\gamma_{i-1} + \gamma_i)$.
+		\item $i$-tes Polynom gegeben durch $s_i(x) = y_{i-1} + (x - x_{x_i-1}) y_{i-1,i} + (x - x_{i-1})(x - x_i)[\alpha_i(x - x_{i-1}) + \beta_i (x - x_i)]$
+	\end{enumerate}
+\end{flashcard}
+
+\begin{flashcard}[LGS]{LGS für eingespannte Splines}
+	$$d_0 := y_{0,1} - v_0, \qquad d_n := v_n - y_{n-1,n}$$
+	$$
+		\frac{1}{6}
+		\begin{pmatrix}
+			2 h_1 & h_1 & & & \\
+			h_1 & 2(h_1 + h_2) & h_2 & & \\
+			& \ddots & \ddots & \ddots & \\
+			& & h_{n-1} & 2(h_{n-1} + h_n) & h_n\\
+			& & & h_n & 2 h_n
+		\end{pmatrix}
+		\gamma = d
+	$$
+\end{flashcard}
+
+\begin{flashcard}[LGS]{LGS für natürliche Splines}
+	$$
+		\tilde{d} = \begin{pmatrix}
+			0\\
+			d_1\\
+			\vdots\\
+			d_{n-1}\\
+			0
+		\end{pmatrix}
+	$$
+	$$
+		\frac{1}{6}
+		\begin{pmatrix}
+			6 & & & & \\
+			h_1 & 2(h_1 + h_2) & h_2 & & \\
+			& \ddots & \ddots & \ddots & \\
+			& & h_{n-1} & 2(h_{n-1} + h_n) & h_n\\
+			& & & & 6
+		\end{pmatrix}
+		\gamma = \tilde{d}
+	$$
+\end{flashcard}
+
+\begin{flashcard}[LGS]{LGS für periodische Splines}
+	$$
+		\tilde{d} = \begin{pmatrix}
+			0\\
+			d_1\\
+			\vdots\\
+			d_{n-1}\\
+			y_{0,1} - y_{n-1,n}
+		\end{pmatrix}
+	$$
+	$$
+		\frac{1}{6}
+		\begin{pmatrix}
+			6 & & & & -6\\
+			h_1 & 2(h_1 + h_2) & h_2 & & \\
+			& \ddots & \ddots & \ddots & \\
+			& & h_{n-1} & 2(h_{n-1} + h_n) & h_n\\
+			2 h_1 & h_1 & & h_n & 2 h_n
+		\end{pmatrix}
+		\gamma = \tilde{d}
+	$$
+\end{flashcard}
