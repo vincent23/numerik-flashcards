@@ -88,3 +88,68 @@ Seien $A \in \mathbb{R}^{m \times n}, b \in \mathbb{R}^m$ mit $m > n$. Der Vekto
 $$A^TAx = A^Tb$$
 löst. Insbesondere ist das lineare Ausgleichsproblem genau dann eindeutig lösbar, wenn der Rang $A$ maximal ist, d.h. $Rang(A) = n$ gilt.
 \end{flashcard}
+
+\begin{flashcard}[Definition]{Kondition einer Matrix}
+	Wir nennen
+	$$ cond(A) := \| A \| \|A^{-1}\| $$
+	die \emph{Konditionszahl} der Matrix $A$.
+	Sie ist ein Maß der Sensitivität des relativen Fehlers gegenüber relativen Störungen der rechten Seite $b$ [eines Gleichungssystems].
+\end{flashcard}
+
+\begin{flashcard}[Satz]{Störungen von $A$ und $b$}
+	Sei $A$ eine invertierbare Matrix und
+	$$ Ax = b, \qquad \bar{A}\bar{x}=\bar{b}.$$
+	Seien weiter die relativen Abweichungen beschränkt:
+	$$ \frac{\|A - \bar{A}\|}{\|A\|} \leq \epsilon_A, \qquad \frac{\|b - \bar{b}\|}{\|b\|} \leq \epsilon_b.$$
+	Dann gilt die Abschätzung:
+	$$ \frac{\|x - \bar{x}\|}{\|x\|} \leq \frac{cond(A)}{1 - \epsilon_A \cdot cond(A)} \cdot (\epsilon_A + \epsilon_b),$$
+	falls $\epsilon_A \cdot cond(A) < 1$.
+\end{flashcard}
+
+\begin{flashcard}[Definition]{Stabilität (Vorwärtsanalyse)}
+	Der Algorithmus heißt \emph{numerisch stabil Vorwärtsanalyse}, falls
+	$$ \frac{\|x - \hat{x}\|}{\|x\|} \leq C \cdot cond(A) \cdot eps$$
+	mit nicht allzu großem C gilt.
+	D.h. der Einfluss von Rundungsfehlern während der Rechnung ist nicht viel größer als der Einfluss von Rundungsfehlern in den Daten.
+\end{flashcard}
+
+\begin{flashcard}[Definition]{Stabilität (Rückwärtsanalyse)}
+	Der Algorithmus heißt \emph{numerisch stabil Vorwärtsanalyse}, falls das numerische Ergebnis $\hat{x}$ als exakte Lösung einer Gleichung $\bar{A}\hat{x} = \bar{b}$ interpretiert werden kann mit
+	$$ \frac{\|A - \bar{A}\|}{\|A\|} \leq C \cdot eps, \qquad \frac{\|b - \bar{b}\|}{\|b\|} \leq C \cdot eps$$
+	mit nicht allzu großem C.
+
+	Die Idee besteht darin, die durch den Algorithmus verursachten Fehler auf die Eingabegröße zurückzuspielen und so als zusätzliche Eingabefehler zu interpretieren.
+\end{flashcard}
+
+\begin{flashcard}[Satz]{Rückwärtsanalyse der Gauß-Elimination ohne Pivotwahl}
+	Seien $A \in \mathbb{R}^{n \times n}$ eine Matrix und $b \in \mathbb{R}^n$ ein Vektor von Gleitpunktzahlen.
+	Des Weiteren besitze $A$ eine LR-Zerlegung und es seien $\hat{L}, \hat{R}$ in Gleitpunkt-Arithmetik berechnet.
+	Das in Gleitpunkt-Arithmetik erhaltene Ergebnis $\hat{x}$ von $\hat{L}\hat{c} = b, \hat{R}x = \hat{c}$ erfüllt
+	$$ \bar{A}\hat{x} = b $$
+	für eine Matrix $\bar{A}$ mit
+	$$ |A - \bar{A}| \leq 3 (n + 1) eps |\hat{L}| |\hat{R}| + \mathcal{O}(eps^2).$$
+\end{flashcard}
+
+\begin{flashcard}[Satz]{Rückwärtsanalyse der Gauß-Elimination mit Spaltenpivotwahl}
+	Seien $A \in \mathbb{R}^{n \times n}$ eine Matrix und $b \in \mathbb{R}^n$ ein Vektor von Gleitpunktzahlen.
+	Des Weiteren sei die Gauß-Elimination mit Spaltenpivotwahl durchführbar.
+	Für das Gleichungssystem $Ax = b$ berechnet sie in Gleitpunkt-Arithmetik ein $\hat{x}$, so dass
+	$$ \bar{A}\hat{x} = b $$
+	für eine Matrix $\bar{A}$ mit
+	$$ \frac{\|A - \bar{A}\|_\infty}{\|A\|_\infty} \leq 2 n^3 \frac{\max_{i,j} |\hat{r}_{ij}|}{\max_{i,j} |a_{ij}|} eps + \mathcal{O}(eps^2).$$
+\end{flashcard}
+
+\begin{flashcard}[Definition]{QR-Zerlegung}
+	Zu einer gegebenen Matrix $A \in \mathbb{R}^{m \times n}$ mit $m \geq n$ lässt sich eine Zerlegung
+	$$ A = QR $$
+	konstruieren mit orthogonaler Matrix $Q \in \mathbb{R}^{m \times m}$ (d.h. $QQ^T = I$ und
+$$ R = \begin{pmatrix}\tilde{R}\\0\end{pmatrix} \in \mathbb{R}^{m \times n}, \tilde{R} \in \mathbb{R}^{n \times n} \text{ obere Dreiecksmatrix.}$$
+\end{flashcard}
+
+\begin{flashcard}[Algorithmus]{QR-Zerlegung}
+	\begin{enumerate}
+		\item Bestimme $Q$ und $R$ mittels Householder-Transformation mit $A = QR$.
+		\item Löse $Qc = b$ mit $c = Q^{-1} b = Q^T b$.
+		\item Löse $\tilde{R}x = c$ (Rückwärtssubstitution). Für $m = n$ gilt $R = \tilde{R}$.
+	\end{enumerate}
+\end{flashcard}
